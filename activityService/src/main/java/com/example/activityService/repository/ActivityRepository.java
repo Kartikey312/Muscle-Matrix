@@ -1,4 +1,4 @@
-package com.example.activityService.Service;
+package com.example.activityService.repository;
 
 import com.example.activityService.model.Activity;
 import org.springframework.data.mongodb.repository.MongoRepository;

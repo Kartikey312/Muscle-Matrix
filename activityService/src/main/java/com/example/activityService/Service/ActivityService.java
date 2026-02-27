@@ -5,6 +5,7 @@ package com.example.activityService.Service;
 import com.example.activityService.dto.ActivityRequest;
 import com.example.activityService.dto.ActivityResponse;
 import com.example.activityService.model.Activity;
+import com.example.activityService.repository.ActivityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
