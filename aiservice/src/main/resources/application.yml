@@ -3,24 +3,30 @@ spring:
     name: aiservice
 
   data:
-  mongodb:
-    uri: mongodb://localhost:27017/airecommedationfitness
-    database: airecommedationfitness
+    mongodb:
+      uri: mongodb://localhost:27017/airecommedationfitness
+      database: airecommedationfitness
+
   kafka:
     bootstrap-servers: localhost:9092
-    Consumer:
+    consumer:
       group-id: activity-processor-group
-      key-deserializer: org.apache.kafka.common.serialization.StringDeSerializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeSerializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.use.type.headers: false
-        spring.json.value.default.type: package com.fitness.aiservice.model.Activity
-        spring.json.trusted.packges: "*"
+        spring.json.value.default.type: com.fitness.aiservice.model.Activity
+        spring.json.trusted.packages: "*"
 
 eureka:
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://localhost:8761/eureka/
+
+gemini:
+  api:
+    url: ${GEMINI_URL:https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent}
+    key: ${GEMINI_KEY:}
 
 server:
   port: 8083
