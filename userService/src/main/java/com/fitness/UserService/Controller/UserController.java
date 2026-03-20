@@ -12,27 +12,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 @AllArgsConstructor
 public class UserController {
-    private UserService userService;
 
-    @GetMapping("/{userID}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable String userID){
-        return ResponseEntity.ok(userService.getUserProfile(userID));
+    private final UserService userService;
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserResponse> getUserById(@PathVariable String userId) {
+        return ResponseEntity.ok(userService.getUserProfile(userId));
     }
-
-
-
 
     @PostMapping("/register")
-    public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest request ){
+    public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest request) {
         return ResponseEntity.ok(userService.register(request));
-
     }
 
-    @GetMapping("/{userID}/validate")
-    public ResponseEntity<Boolean> validateUser(@PathVariable String userID){
-        return ResponseEntity.ok(userService.existbyUserId(userID));
+    @GetMapping("/{userId}/validate")
+    public ResponseEntity<Boolean> validateUser(@PathVariable String userId) {
+        return ResponseEntity.ok(userService.existByUserId(userId));
     }
-
-
 }
-
