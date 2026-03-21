@@ -74,7 +74,7 @@ fitness-project/
 └── frontend/
 🛠️ Setup Instructions
 1️⃣ Clone Repository
-git clone https://github.com/your-username/fitness-project.git
+git clone https://github.com/Kartikey312/Muscle-Matrix.git
 cd fitness-project
 2️⃣ Start Backend Services
 
